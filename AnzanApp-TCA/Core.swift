@@ -17,31 +17,20 @@ struct CounterState: Equatable{
     var incorrectAnswer = "不正解"
 }
 
-enum CoutnerAction: Equatable {
+enum CounterAction: Equatable {
     case onAppear
     case alertDismissed
     case sheetDismissed
-    case randomFirstNumber
-    case randomSecondNumber
-//    case text
     case textChanged(String)
     case AnswerButtonTapped
 }
 
 struct CounterEnvironment {}
 
-let counterReducer = Reducer<CounterState, CoutnerAction, CounterEnvironment
+let counterReducer = Reducer<CounterState, CounterAction, CounterEnvironment
     > { state, action, _ in
 
     switch action {
-    case .randomFirstNumber:
-        state.firstNumber = Int.random(in: 1...9)
-        return .none
-
-    case .randomSecondNumber:
-        state.secondNumber = Int.random(in: 1...9)
-        return .none
-
     case .AnswerButtonTapped:
 
         return .none
@@ -52,21 +41,21 @@ let counterReducer = Reducer<CounterState, CoutnerAction, CounterEnvironment
         return .none
 
     case .alertDismissed:
-        state.firstNumber = Int.random(in: 1...9)
-        state.secondNumber = Int.random(in: 1...9)
+        state.firstNumber = Int.random(in: 1...1000)
+        state.secondNumber = Int.random(in: 1...1000)
         state.inputText = ""
         state.alert = nil
         return .none
 
     case .sheetDismissed:
-        state.firstNumber = Int.random(in: 1...9)
-        state.secondNumber = Int.random(in: 1...9)
+        state.firstNumber = Int.random(in: 1...1000)
+        state.secondNumber = Int.random(in: 1...1000)
         state.inputText = ""
         return .none
 
     case .onAppear:
-        state.firstNumber = Int.random(in: 1...9)
-        state.secondNumber = Int.random(in: 1...9)
+        state.firstNumber = Int.random(in: 1...100)
+        state.secondNumber = Int.random(in: 1...100)
         return .none
     }
 }

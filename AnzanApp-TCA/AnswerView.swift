@@ -10,47 +10,47 @@ import SwiftUI
 
 struct AnswerView: View {
 
-    let store: Store<CounterState, CoutnerAction>
+    let store: Store<CounterState, CounterAction>
+
+    let soundPlayer = SoundPlayer()
 
     var body: some View {
         WithViewStore(self.store) { viewStore in
             ZStack{
-                //黒板の画像を背景画像として表示する。
-                Image("bunbougu_kokuban")
-                //画像をリサイズする。
+                Image.kokuban
                     .resizable()
-                //アスペクト比(縦横比)を保ったまま画面いっぱいに表示する。
                     .aspectRatio(contentMode: .fit)
-                //計算式・答え・正解、不正解を縦方向にレイアウトする
                 VStack{
-                    // 計算式と答えをTextの文字列連結で一行で記述。
                     Text("\(viewStore.firstNumber) + \(viewStore.secondNumber) = \(viewStore.inputNumber)")
+
                     Text("答えは\(viewStore.firstNumber + viewStore.secondNumber)")
+
                     if viewStore.firstNumber + viewStore.secondNumber == viewStore.inputNumber {
                         Text(viewStore.state.correctAnswer)
                     } else {
                         Text(viewStore.state.incorrectAnswer)
                     }
-                }// VStackここまで
+                }
                 .font(.largeTitle)
                 .foregroundColor(Color.white)
                 .frame(width:300)
                 .frame(height: 150)
-            }// ZStack
+            }
             .onAppear {
                 //正解の場合
                 if viewStore.state.firstNumber + viewStore.state.secondNumber == viewStore.state.inputNumber {
-                    //正解の音を鳴らす。
+
+                    soundPlayer.correctSoundPlay()
                 }
                 //不正解の場合
                 else{
-                    //不正解の音を鳴らす。
+                    soundPlayer.incorrectSoundPlay()
                 }
-            }// onAppear
+            }
             .onDisappear {
                 viewStore.send(.sheetDismissed)
-            }// onDisappear
-        }// WithViewStore
+            }
+        }
     }
 }
 

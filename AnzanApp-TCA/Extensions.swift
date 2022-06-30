@@ -11,3 +11,7 @@ import SwiftUI
 extension Color {
     static let backgroundColor = Color("backgroundColor")
 }
+
+extension Image {
+    static let kokuban = Image("kokuban")
+}
