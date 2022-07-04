@@ -19,10 +19,8 @@ struct CounterState: Equatable{
 
 enum CounterAction: Equatable {
     case onAppear
-    case alertDismissed
     case sheetDismissed
     case textChanged(String)
-    case AnswerButtonTapped
 }
 
 struct CounterEnvironment {}
@@ -31,20 +29,9 @@ let counterReducer = Reducer<CounterState, CounterAction, CounterEnvironment
     > { state, action, _ in
 
     switch action {
-    case .AnswerButtonTapped:
-
-        return .none
-
     case let .textChanged(inputText):
         state.inputText = inputText
         state.inputNumber = Int(state.inputText) ?? 0
-        return .none
-
-    case .alertDismissed:
-        state.firstNumber = Int.random(in: 1...1000)
-        state.secondNumber = Int.random(in: 1...1000)
-        state.inputText = ""
-        state.alert = nil
         return .none
 
     case .sheetDismissed:

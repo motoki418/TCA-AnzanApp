@@ -13,9 +13,13 @@ class SoundPlayer: NSObject {
 
     private let incorrectSoundData = NSDataAsset(name: "incorrect")!.data
 
+    private let resultAnnouncementSoundData = NSDataAsset(name: "resultAnnouncement")!.data
+
     private var correctSoundPlayer: AVAudioPlayer!
 
     private var incorrectSoundPlayer: AVAudioPlayer!
+
+    private var resultAnnouncementSoundPlayer: AVAudioPlayer!
 
     func correctSoundPlay() {
         do {
@@ -32,6 +36,16 @@ class SoundPlayer: NSObject {
             self.incorrectSoundPlayer.play()
         } catch {
             print("不正解の音でエラーが発生しました！")
+        }
+    }
+
+    func resultAnnouncementSoundPlay() {
+        do {
+            self.resultAnnouncementSoundPlayer = try AVAudioPlayer(
+                data: resultAnnouncementSoundData)
+            self.resultAnnouncementSoundPlayer.play()
+        } catch {
+            print("結果発表の音でエラーが発生しました！")
         }
     }
 }

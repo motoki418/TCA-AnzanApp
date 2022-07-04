@@ -11,9 +11,11 @@ import SwiftUI
 struct ContentView: View {
 
     let store: Store<CounterState, CounterAction>
+
+    private let soundPlayer = SoundPlayer()
     
     @State private var isShowAlert = false
-    @State private var isShowAnswer = false
+    @State private var isShowSheet = false
 
     var body: some View {
         WithViewStore(self.store) { viewStore in
@@ -25,7 +27,6 @@ struct ContentView: View {
                     HStack {
                         Text("\(viewStore.state.firstNumber) + \(viewStore.state.secondNumber) =")
                             .font(.largeTitle)
-                            .foregroundColor(.black)
                         TextField(
                             "答えは？",
                             text: viewStore.binding(
@@ -34,19 +35,22 @@ struct ContentView: View {
                             )
                         )
                         .keyboardType(.decimalPad)
-                        .frame(height: 40)
                         .frame(width: 100)
+                        .font(.title2)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                     }// HStack
                     .frame(width:300)
                     .frame(height: 60)
-                    .background(Color.backgroundColor)
 
                     Button {
                         if viewStore.inputText.isEmpty {
-                            self.isShowAlert = true
+                            self.isShowAlert.toggle()
                         } else {
-                            self.isShowAnswer = true
+                            soundPlayer.resultAnnouncementSoundPlay()
+                            // 結果発表の音が鳴り終わってから答えを表示する。
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                                self.isShowSheet.toggle()
+                            }
                         }
                     } label: {
                         Text("答える")
@@ -66,8 +70,10 @@ struct ContentView: View {
                         dismissButton: .default(Text("了解"))
                     )
                 }
-                .sheet(isPresented: $isShowAnswer) {
-                    AnswerView(store: self.store)
+                .sheet(isPresented: $isShowSheet) {
+                    AnswerView(
+                        store: self.store,
+                        isShowSheet: $isShowSheet)
                 }
             }
         }
