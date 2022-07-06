@@ -44,6 +44,7 @@ struct ContentView: View {
 
                     Button {
                         if viewStore.inputText.isEmpty {
+
                             self.isShowAlert.toggle()
                         } else {
                             soundPlayer.resultAnnouncementSoundPlay()
@@ -55,7 +56,6 @@ struct ContentView: View {
                     } label: {
                         Text("答える")
                             .font(.title)
-                            .frame(width:100)
                             .frame(height: 60)
                     }// Button
                     .background(Color.backgroundColor)

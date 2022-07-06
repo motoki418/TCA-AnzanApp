@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36A991922875323600DC7393 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 36A991912875323600DC7393 /* ComposableArchitecture */; };
 		36AB1BF7286D510200766B0F /* AnzanApp_TCAApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AB1BF6286D510200766B0F /* AnzanApp_TCAApp.swift */; };
 		36AB1BF9286D510200766B0F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AB1BF8286D510200766B0F /* ContentView.swift */; };
 		36AB1BFB286D510300766B0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36AB1BFA286D510300766B0F /* Assets.xcassets */; };
 		36AB1BFE286D510300766B0F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36AB1BFD286D510300766B0F /* Preview Assets.xcassets */; };
 		36AB1C05286D512600766B0F /* AnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AB1C04286D512600766B0F /* AnswerView.swift */; };
-		36AB1C08286D515200766B0F /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 36AB1C07286D515200766B0F /* ComposableArchitecture */; };
 		36AB1C0A286D516200766B0F /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AB1C09286D516200766B0F /* Core.swift */; };
 		36AB1C0C286D516B00766B0F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AB1C0B286D516B00766B0F /* Extensions.swift */; };
 		36AB1C0E286D5DD500766B0F /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AB1C0D286D5DD500766B0F /* SoundPlayer.swift */; };
@@ -35,7 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				36AB1C08286D515200766B0F /* ComposableArchitecture in Frameworks */,
+				36A991922875323600DC7393 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,7 +98,7 @@
 			);
 			name = "AnzanApp-TCA";
 			packageProductDependencies = (
-				36AB1C07286D515200766B0F /* ComposableArchitecture */,
+				36A991912875323600DC7393 /* ComposableArchitecture */,
 			);
 			productName = "AnzanApp-TCA";
 			productReference = 36AB1BF3286D510200766B0F /* AnzanApp-TCA.app */;
@@ -129,7 +129,7 @@
 			);
 			mainGroup = 36AB1BEA286D510200766B0F;
 			packageReferences = (
-				36AB1C06286D515200766B0F /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				36A991902875323600DC7393 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			productRefGroup = 36AB1BF4286D510200766B0F /* Products */;
 			projectDirPath = "";
@@ -297,18 +297,20 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.motoki.AnzanApp-TCA";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -326,18 +328,20 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.motoki.AnzanApp-TCA";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -365,20 +369,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		36AB1C06286D515200766B0F /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+		36A991902875323600DC7393 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:pointfreeco/swift-composable-architecture.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.38.1;
+				minimumVersion = 0.38.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		36AB1C07286D515200766B0F /* ComposableArchitecture */ = {
+		36A991912875323600DC7393 /* ComposableArchitecture */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 36AB1C06286D515200766B0F /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			package = 36A991902875323600DC7393 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
 		};
 /* End XCSwiftPackageProductDependency section */

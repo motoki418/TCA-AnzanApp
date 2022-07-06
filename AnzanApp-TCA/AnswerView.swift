@@ -15,26 +15,28 @@ struct AnswerView: View {
     private let soundPlayer = SoundPlayer()
 
     @Binding var isShowSheet: Bool
-
+    
     var body: some View {
         WithViewStore(self.store) { viewStore in
             NavigationView {
-                ZStack{
-                    Image.kokuban
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                    VStack{
-                        Text("\(viewStore.firstNumber) + \(viewStore.secondNumber) = \(viewStore.inputNumber)")
+                VStack {
+                    ZStack{
+                        Image.kokuban
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                        VStack{
+                            Text("\(viewStore.firstNumber) + \(viewStore.secondNumber) = \(viewStore.inputNumber)")
 
-                        Text("答えは\(viewStore.firstNumber + viewStore.secondNumber)")
+                            Text("答えは\(viewStore.firstNumber + viewStore.secondNumber)")
 
-                        if viewStore.firstNumber + viewStore.secondNumber == viewStore.inputNumber {
-                            Text(viewStore.state.correctAnswer)
-                        } else {
-                            Text(viewStore.state.incorrectAnswer)
+                            if viewStore.firstNumber + viewStore.secondNumber == viewStore.inputNumber {
+                                Text(viewStore.state.correctAnswer)
+                            } else {
+                                Text(viewStore.state.incorrectAnswer)
+                            }
                         }
+                        .font(.largeTitle)
                     }
-                    .font(.largeTitle)
                 }
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {

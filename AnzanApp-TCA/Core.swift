@@ -9,10 +9,11 @@ import SwiftUI
 
 struct CounterState: Equatable{
     var alert: AlertState<CounterState>?// OptionalState
-    var firstNumber = 0
-    var secondNumber = 0
+    var firstNumber = Int.random(in: 1...1000)
+    var secondNumber = Int.random(in: 1...1000)
     var inputText = ""
     var inputNumber = 0
+    var culclationNumber = 0
     var correctAnswer = "正解"
     var incorrectAnswer = "不正解"
 }
@@ -26,7 +27,7 @@ enum CounterAction: Equatable {
 struct CounterEnvironment {}
 
 let counterReducer = Reducer<CounterState, CounterAction, CounterEnvironment
-    > { state, action, _ in
+> { state, action, _ in
 
     switch action {
     case let .textChanged(inputText):
@@ -35,8 +36,6 @@ let counterReducer = Reducer<CounterState, CounterAction, CounterEnvironment
         return .none
 
     case .sheetDismissed:
-        state.firstNumber = Int.random(in: 1...1000)
-        state.secondNumber = Int.random(in: 1...1000)
         state.inputText = ""
         return .none
 
@@ -46,4 +45,4 @@ let counterReducer = Reducer<CounterState, CounterAction, CounterEnvironment
         return .none
     }
 }
-    .debug()
+.debug()
