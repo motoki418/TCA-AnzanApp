@@ -7,24 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		363F62632875836D00B77C97 /* AdditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363F62622875836D00B77C97 /* AdditionView.swift */; };
+		363F62652875837600B77C97 /* SubtractionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363F62642875837600B77C97 /* SubtractionView.swift */; };
+		363F62682875904000B77C97 /* AdditionAnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363F62672875904000B77C97 /* AdditionAnswerView.swift */; };
 		36A991922875323600DC7393 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 36A991912875323600DC7393 /* ComposableArchitecture */; };
 		36AB1BF7286D510200766B0F /* AnzanApp_TCAApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AB1BF6286D510200766B0F /* AnzanApp_TCAApp.swift */; };
 		36AB1BF9286D510200766B0F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AB1BF8286D510200766B0F /* ContentView.swift */; };
 		36AB1BFB286D510300766B0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36AB1BFA286D510300766B0F /* Assets.xcassets */; };
 		36AB1BFE286D510300766B0F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36AB1BFD286D510300766B0F /* Preview Assets.xcassets */; };
-		36AB1C05286D512600766B0F /* AnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AB1C04286D512600766B0F /* AnswerView.swift */; };
+		36AB1C05286D512600766B0F /* SubtractionAnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AB1C04286D512600766B0F /* SubtractionAnswerView.swift */; };
 		36AB1C0A286D516200766B0F /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AB1C09286D516200766B0F /* Core.swift */; };
 		36AB1C0C286D516B00766B0F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AB1C0B286D516B00766B0F /* Extensions.swift */; };
 		36AB1C0E286D5DD500766B0F /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AB1C0D286D5DD500766B0F /* SoundPlayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		363F62622875836D00B77C97 /* AdditionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionView.swift; sourceTree = "<group>"; };
+		363F62642875837600B77C97 /* SubtractionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtractionView.swift; sourceTree = "<group>"; };
+		363F62672875904000B77C97 /* AdditionAnswerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionAnswerView.swift; sourceTree = "<group>"; };
 		36AB1BF3286D510200766B0F /* AnzanApp-TCA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AnzanApp-TCA.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		36AB1BF6286D510200766B0F /* AnzanApp_TCAApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnzanApp_TCAApp.swift; sourceTree = "<group>"; };
 		36AB1BF8286D510200766B0F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		36AB1BFA286D510300766B0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		36AB1BFD286D510300766B0F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		36AB1C04286D512600766B0F /* AnswerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerView.swift; sourceTree = "<group>"; };
+		36AB1C04286D512600766B0F /* SubtractionAnswerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtractionAnswerView.swift; sourceTree = "<group>"; };
 		36AB1C09286D516200766B0F /* Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
 		36AB1C0B286D516B00766B0F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		36AB1C0D286D5DD500766B0F /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
@@ -42,6 +48,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		363F62662875837E00B77C97 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				36AB1BF8286D510200766B0F /* ContentView.swift */,
+				363F62622875836D00B77C97 /* AdditionView.swift */,
+				363F62642875837600B77C97 /* SubtractionView.swift */,
+				363F62672875904000B77C97 /* AdditionAnswerView.swift */,
+				36AB1C04286D512600766B0F /* SubtractionAnswerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		36AB1BEA286D510200766B0F = {
 			isa = PBXGroup;
 			children = (
@@ -62,8 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				36AB1BF6286D510200766B0F /* AnzanApp_TCAApp.swift */,
-				36AB1BF8286D510200766B0F /* ContentView.swift */,
-				36AB1C04286D512600766B0F /* AnswerView.swift */,
+				363F62662875837E00B77C97 /* Views */,
 				36AB1C09286D516200766B0F /* Core.swift */,
 				36AB1C0D286D5DD500766B0F /* SoundPlayer.swift */,
 				36AB1C0B286D516B00766B0F /* Extensions.swift */,
@@ -158,11 +175,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				36AB1C0C286D516B00766B0F /* Extensions.swift in Sources */,
+				363F62652875837600B77C97 /* SubtractionView.swift in Sources */,
 				36AB1BF9286D510200766B0F /* ContentView.swift in Sources */,
+				363F62632875836D00B77C97 /* AdditionView.swift in Sources */,
 				36AB1BF7286D510200766B0F /* AnzanApp_TCAApp.swift in Sources */,
 				36AB1C0A286D516200766B0F /* Core.swift in Sources */,
 				36AB1C0E286D5DD500766B0F /* SoundPlayer.swift in Sources */,
-				36AB1C05286D512600766B0F /* AnswerView.swift in Sources */,
+				363F62682875904000B77C97 /* AdditionAnswerView.swift in Sources */,
+				36AB1C05286D512600766B0F /* SubtractionAnswerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,22 +1,22 @@
 //
-//  ContentView.swift
+//  AdditionView.swift
 //  AnzanApp-TCA
 //
-//  Created by nakamura motoki on 2022/06/30.
+//  Created by nakamura motoki on 2022/07/06.
 //
 
 import ComposableArchitecture
 import SwiftUI
 
-struct ContentView: View {
-
+struct AdditionView: View {
+    
     let store: Store<CounterState, CounterAction>
-
+    
     private let soundPlayer = SoundPlayer()
     
     @State private var isShowAlert = false
     @State private var isShowSheet = false
-
+    
     var body: some View {
         WithViewStore(self.store) { viewStore in
             ZStack {
@@ -25,7 +25,7 @@ struct ContentView: View {
                     .aspectRatio(contentMode: .fit)
                 VStack {
                     HStack {
-                        Text("\(viewStore.state.firstNumber) + \(viewStore.state.secondNumber) =")
+                        Text("\(viewStore.firstNumber) + \(viewStore.secondNumber) =")
                             .font(.largeTitle)
                         TextField(
                             "答えは？",
@@ -41,10 +41,10 @@ struct ContentView: View {
                     }// HStack
                     .frame(width:300)
                     .frame(height: 60)
-
+                    
                     Button {
                         if viewStore.inputText.isEmpty {
-
+                            
                             self.isShowAlert.toggle()
                         } else {
                             soundPlayer.resultAnnouncementSoundPlay()
@@ -71,7 +71,7 @@ struct ContentView: View {
                     )
                 }
                 .sheet(isPresented: $isShowSheet) {
-                    AnswerView(
+                    AdditionAnswerView(
                         store: self.store,
                         isShowSheet: $isShowSheet)
                 }
@@ -80,9 +80,9 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct AdditionView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(
+        AdditionView(
             store: Store(
                 initialState: CounterState(),
                 reducer: counterReducer,

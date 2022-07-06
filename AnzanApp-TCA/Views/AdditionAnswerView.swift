@@ -1,5 +1,5 @@
 //
-//  AnswerView.swift
+//  AdditionAnswerView.swift
 //  AnzanApp-TCA
 //
 //  Created by nakamura motoki on 2022/06/30.
@@ -8,12 +8,12 @@
 import ComposableArchitecture
 import SwiftUI
 
-struct AnswerView: View {
-
+struct AdditionAnswerView: View {
+    
     let store: Store<CounterState, CounterAction>
-
+    
     private let soundPlayer = SoundPlayer()
-
+    
     @Binding var isShowSheet: Bool
     
     var body: some View {
@@ -25,14 +25,15 @@ struct AnswerView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                         VStack{
+                            
                             Text("\(viewStore.firstNumber) + \(viewStore.secondNumber) = \(viewStore.inputNumber)")
-
+                            
                             Text("答えは\(viewStore.firstNumber + viewStore.secondNumber)")
-
+                            
                             if viewStore.firstNumber + viewStore.secondNumber == viewStore.inputNumber {
-                                Text(viewStore.state.correctAnswer)
+                                Text("正解")
                             } else {
-                                Text(viewStore.state.incorrectAnswer)
+                                Text("不正解")
                             }
                         }
                         .font(.largeTitle)
@@ -65,9 +66,9 @@ struct AnswerView: View {
     }
 }
 
-//struct AnswerView_Previews: PreviewProvider {
+//struct AdditionAnswerView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        AnswerView(
+//        AdditionAnswerView(
 //            store: Store(
 //                initialState: CounterState(),
 //                reducer: counterReducer,

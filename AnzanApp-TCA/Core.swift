@@ -8,14 +8,10 @@ import ComposableArchitecture
 import SwiftUI
 
 struct CounterState: Equatable{
-    var alert: AlertState<CounterState>?// OptionalState
     var firstNumber = Int.random(in: 1...1000)
     var secondNumber = Int.random(in: 1...1000)
     var inputText = ""
     var inputNumber = 0
-    var culclationNumber = 0
-    var correctAnswer = "正解"
-    var incorrectAnswer = "不正解"
 }
 
 enum CounterAction: Equatable {
@@ -26,23 +22,24 @@ enum CounterAction: Equatable {
 
 struct CounterEnvironment {}
 
-let counterReducer = Reducer<CounterState, CounterAction, CounterEnvironment
-> { state, action, _ in
-
+let counterReducer = Reducer<CounterState, CounterAction, CounterEnvironment> { state, action, _ in
+    
     switch action {
     case let .textChanged(inputText):
         state.inputText = inputText
         state.inputNumber = Int(state.inputText) ?? 0
         return .none
-
+        
     case .sheetDismissed:
+        state.firstNumber = Int.random(in: 1...1000)
+        state.secondNumber = Int.random(in: 1...1000)
         state.inputText = ""
         return .none
-
+        
     case .onAppear:
-        state.firstNumber = Int.random(in: 1...100)
-        state.secondNumber = Int.random(in: 1...100)
+        state.firstNumber = Int.random(in: 1...1000)
+        state.secondNumber = Int.random(in: 1...1000)
         return .none
     }
 }
-.debug()
+    .debug()
