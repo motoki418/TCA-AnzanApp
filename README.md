@@ -20,3 +20,5 @@ TCAの学習用として作成した暗算アプリです。
 [[SwiftUI]TCAを理解する：基礎](https://zenn.dev/search?q=TCA)
 
 [ComposableArchitecture Documentation](https://pointfreeco.github.io/swift-composable-architecture/#structures)
+
+[【SwiftUI】キーボードを閉じる（フォーカスを外す）](https://thwork.net/2021/11/19/swiftui_keyboard-close_focus-remove/)
