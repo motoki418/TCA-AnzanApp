@@ -22,3 +22,8 @@ TCAの学習用として作成した暗算アプリです。
 [ComposableArchitecture Documentation](https://pointfreeco.github.io/swift-composable-architecture/#structures)
 
 [【SwiftUI】キーボードを閉じる（フォーカスを外す）](https://thwork.net/2021/11/19/swiftui_keyboard-close_focus-remove/)
+
+## 開発環境
+- Xcode13.4
+- macOS Monterey 12.4
+- iOS15.5
