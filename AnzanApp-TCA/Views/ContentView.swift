@@ -9,20 +9,20 @@ import ComposableArchitecture
 import SwiftUI
 
 struct ContentView: View {
-
+    
     let store: Store<CounterState, CounterAction>
-
+    
     var body: some View {
         WithViewStore(self.store) { viewStore in
             TabView {
                 AdditionView(store: self.store)
                     .tabItem {
-                        Label("足し算", systemImage: "plus")
+                        Label("足し算", systemImage: "plus.circle")
                     }
                 
                 SubtractionView(store: self.store)
                     .tabItem {
-                        Label("引き算", systemImage: "minus")
+                        Label("引き算", systemImage: "minus.circle")
                     }
             }
         }

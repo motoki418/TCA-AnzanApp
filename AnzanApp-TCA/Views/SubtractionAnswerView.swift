@@ -25,12 +25,18 @@ struct SubtractionAnswerView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                         VStack{
+                            if viewStore.firstNumber >= viewStore.secondNumber {
+                                Text("\(viewStore.firstNumber) - \(viewStore.secondNumber) = \(viewStore.inputNumber)")
+                            } else if viewStore.firstNumber <= viewStore.secondNumber {
+                                Text("\(viewStore.secondNumber) - \(viewStore.firstNumber) = \(viewStore.inputNumber)")
+                            }
+                            if viewStore.firstNumber >= viewStore.secondNumber {
+                                Text("答えは\(viewStore.firstNumber - viewStore.secondNumber)")
+                            } else if viewStore.firstNumber <= viewStore.secondNumber {
+                                Text("答えは\(viewStore.secondNumber - viewStore.firstNumber)")
+                            }
                             
-                            Text("\(viewStore.firstNumber) - \(viewStore.secondNumber) = \(viewStore.inputNumber)")
-                            
-                            Text("答えは\(viewStore.firstNumber - viewStore.secondNumber)")
-                            
-                            if viewStore.firstNumber + viewStore.secondNumber == viewStore.inputNumber {
+                            if viewStore.firstNumber - viewStore.secondNumber == viewStore.inputNumber || viewStore.secondNumber - viewStore.firstNumber == viewStore.inputNumber{
                                 Text("正解")
                             } else {
                                 Text("不正解")
@@ -50,7 +56,7 @@ struct SubtractionAnswerView: View {
                 }
                 .onAppear {
                     //正解の場合
-                    if viewStore.state.firstNumber + viewStore.state.secondNumber == viewStore.state.inputNumber {
+                    if viewStore.firstNumber - viewStore.secondNumber == viewStore.inputNumber || viewStore.secondNumber - viewStore.firstNumber == viewStore.inputNumber {
                         soundPlayer.correctSoundPlay()
                     }
                     //不正解の場合
