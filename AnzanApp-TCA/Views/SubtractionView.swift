@@ -41,7 +41,7 @@ struct SubtractionView: View {
                                     send: CounterAction.textChanged
                                 )
                             )
-                            .frame(width: 100)
+                            .frame(width: 120)
                             .font(.title2)
                             // 引数には @FocusStateの値を渡す
                             .focused(self.$focusedField)
@@ -61,7 +61,6 @@ struct SubtractionView: View {
                             Text("答える")
                                 .font(.title)
                                 .frame(width: 100, height: 60)
-                                .cornerRadius(24)
                         }
                         .background(Color.backgroundColor)
                     }

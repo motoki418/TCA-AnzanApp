@@ -47,7 +47,7 @@ struct MultiplicationView: View {
                                     send: CounterAction.textChanged
                                 )
                             )
-                            .frame(width: 100)
+                            .frame(width: 120)
                             .font(.title2)
                             // 引数には @FocusStateの値を渡す
                             .focused(self.$focusedField)
