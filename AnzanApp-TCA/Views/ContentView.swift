@@ -24,6 +24,16 @@ struct ContentView: View {
                     .tabItem {
                         Label("引き算", systemImage: "minus.circle")
                     }
+                
+                MultiplicationView(store: self.store)
+                    .tabItem {
+                        Label("掛け算", systemImage: "multiply.circle.fill")
+                    }
+                
+                SettingView()
+                    .tabItem {
+                        Label("設定", systemImage: "gearshape.fill")
+                }
             }
         }
     }

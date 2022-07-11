@@ -1,18 +1,19 @@
 //
-//  AdditionAnswerView.swift
+//  MultiplicationAnswerView.swift
 //  AnzanApp-TCA
 //
-//  Created by nakamura motoki on 2022/06/30.
+//  Created by nakamura motoki on 2022/07/11.
 //
+
 
 import ComposableArchitecture
 import SwiftUI
 
-struct AdditionAnswerView: View {
+struct MultiplicationAnswerView: View {
     
     let store: Store<CounterState, CounterAction>
     
-    private let soundPlayer = SoundPlayer()
+    let soundPlayer = SoundPlayer()
     
     @Binding var isShowSheet: Bool
     
@@ -25,10 +26,18 @@ struct AdditionAnswerView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                         VStack{
+                            HStack {
+                                Text("\(viewStore.multiplicationFirstNumber)")
+                                
+                                Image(systemName: "multiply")
+                                
+                                Text("\(viewStore.multiplicationSecondNumber) =")
+                                
+                                Text("\(viewStore.inputNumber)")
+                            }
+                            .font(.largeTitle)
                             
-                            Text("\(viewStore.firstNumber) + \(viewStore.secondNumber) = \(viewStore.inputNumber)")
-                            
-                            Text("答えは\(viewStore.firstNumber + viewStore.secondNumber)")
+                            Text("答えは\(viewStore.multiplicationFirstNumber * viewStore.multiplicationSecondNumber)")
                             
                             Text("\(viewStore.answerText)")
                         }
@@ -45,7 +54,7 @@ struct AdditionAnswerView: View {
                     }
                 }
                 .onAppear {
-                    viewStore.send(.addition)
+                    viewStore.send(.multiplication)
                 }
                 .onDisappear {
                     viewStore.send(.sheetDismissed)
@@ -55,9 +64,10 @@ struct AdditionAnswerView: View {
     }
 }
 
-//struct AdditionAnswerView_Previews: PreviewProvider {
+
+//struct MultiplicationAnswerView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        AdditionAnswerView(
+//        MultiplicationAnswerView(
 //            store: Store(
 //                initialState: CounterState(),
 //                reducer: counterReducer,

@@ -1,4 +1,11 @@
 //
+//  MultiplicationView.swift
+//  AnzanApp-TCA
+//
+//  Created by nakamura motoki on 2022/07/11.
+//
+
+//
 //  AdditionView.swift
 //  AnzanApp-TCA
 //
@@ -8,7 +15,7 @@
 import ComposableArchitecture
 import SwiftUI
 
-struct AdditionView: View {
+struct MultiplicationView: View {
     
     let store: Store<CounterState, CounterAction>
     
@@ -27,7 +34,11 @@ struct AdditionView: View {
                         .aspectRatio(contentMode: .fit)
                     VStack {
                         HStack {
-                            Text("\(viewStore.firstNumber) + \(viewStore.secondNumber) =")
+                            Text("\(viewStore.multiplicationFirstNumber)")
+                                .font(.largeTitle)
+                            Image(systemName: "multiply")
+                                .font(.largeTitle)
+                            Text("\(viewStore.multiplicationSecondNumber) =")
                                 .font(.largeTitle)
                             TextField(
                                 "答えは？",
@@ -70,7 +81,7 @@ struct AdditionView: View {
                         )
                     }
                     .sheet(isPresented: $isShowSheet) {
-                        AdditionAnswerView(
+                        MultiplicationAnswerView(
                             store: self.store,
                             isShowSheet: $isShowSheet)
                     }
@@ -95,9 +106,9 @@ struct AdditionView: View {
     }
 }
 
-struct AdditionView_Previews: PreviewProvider {
+struct MultiplicationView_Previews: PreviewProvider {
     static var previews: some View {
-        AdditionView(
+        MultiplicationView(
             store: Store(
                 initialState: CounterState(),
                 reducer: counterReducer,
