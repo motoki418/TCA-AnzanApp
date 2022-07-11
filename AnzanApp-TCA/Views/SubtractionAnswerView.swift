@@ -30,17 +30,14 @@ struct SubtractionAnswerView: View {
                             } else if viewStore.firstNumber <= viewStore.secondNumber {
                                 Text("\(viewStore.secondNumber) - \(viewStore.firstNumber) = \(viewStore.inputNumber)")
                             }
+                            
                             if viewStore.firstNumber >= viewStore.secondNumber {
                                 Text("答えは\(viewStore.firstNumber - viewStore.secondNumber)")
                             } else if viewStore.firstNumber <= viewStore.secondNumber {
                                 Text("答えは\(viewStore.secondNumber - viewStore.firstNumber)")
                             }
                             
-                            if viewStore.firstNumber - viewStore.secondNumber == viewStore.inputNumber || viewStore.secondNumber - viewStore.firstNumber == viewStore.inputNumber{
-                                Text("正解")
-                            } else {
-                                Text("不正解")
-                            }
+                            Text("\(viewStore.answerText)")
                         }
                         .font(.largeTitle)
                     }
@@ -55,14 +52,7 @@ struct SubtractionAnswerView: View {
                     }
                 }
                 .onAppear {
-                    //正解の場合
-                    if viewStore.firstNumber - viewStore.secondNumber == viewStore.inputNumber || viewStore.secondNumber - viewStore.firstNumber == viewStore.inputNumber {
-                        soundPlayer.correctSoundPlay()
-                    }
-                    //不正解の場合
-                    else{
-                        soundPlayer.incorrectSoundPlay()
-                    }
+                    viewStore.send(.subtraction)
                 }
                 .onDisappear {
                     viewStore.send(.sheetDismissed)

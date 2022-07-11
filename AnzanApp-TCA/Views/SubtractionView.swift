@@ -12,8 +12,6 @@ struct SubtractionView: View {
     
     let store: Store<CounterState, CounterAction>
     
-    private let soundPlayer = SoundPlayer()
-    
     @State private var isShowAlert = false
     @State private var isShowSheet = false
     
@@ -43,37 +41,33 @@ struct SubtractionView: View {
                                     send: CounterAction.textChanged
                                 )
                             )
+                            .frame(width: 100)
+                            .font(.title2)
                             // 引数には @FocusStateの値を渡す
                             .focused(self.$focusedField)
                             .keyboardType(.decimalPad)
-                            .frame(width: 100)
-                            .font(.title2)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
-                        }// HStack
-                        .frame(width:300)
+                        }
+                        .frame(width: 350)
                         .frame(height: 60)
                         
                         Button {
                             if viewStore.inputText.isEmpty {
-                                
                                 self.isShowAlert.toggle()
                             } else {
-                                soundPlayer.resultAnnouncementSoundPlay()
-                                // 結果発表の音が鳴り終わってから答えを表示する。
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                                    self.isShowSheet.toggle()
-                                }
+                                self.isShowSheet.toggle()
                             }
                         } label: {
                             Text("答える")
                                 .font(.title)
-                                .frame(height: 60)
-                        }// Button
+                                .frame(width: 100, height: 60)
+                                .cornerRadius(24)
+                        }
                         .background(Color.backgroundColor)
-                    }// VStack
+                    }
                     .onAppear {
                         viewStore.send(.onAppear)
-                    }// onAppear
+                    }
                     .alert(isPresented: $isShowAlert) {
                         Alert(
                             title: Text("注意"),
@@ -86,7 +80,7 @@ struct SubtractionView: View {
                             store: self.store,
                             isShowSheet: $isShowSheet)
                     }
-                }// ZStack
+                }
                 .toolbar {
                     ToolbarItem(placement: .keyboard) {
                         HStack {
