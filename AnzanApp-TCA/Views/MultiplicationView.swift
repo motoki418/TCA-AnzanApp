@@ -20,6 +20,7 @@ struct MultiplicationView: View {
     let store: Store<CounterState, CounterAction>
     
     @State private var isShowAlert = false
+    
     @State private var isShowSheet = false
     
     // 入力フォームのフォーカスの状態を管理する状態変数

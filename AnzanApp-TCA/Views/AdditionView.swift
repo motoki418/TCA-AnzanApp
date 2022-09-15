@@ -13,8 +13,8 @@ struct AdditionView: View {
     let store: Store<CounterState, CounterAction>
     
     @State private var isShowAlert = false
-    @State private var isShowSheet = false
     
+    @State private var isShowSheet = false
     // 入力フォームのフォーカスの状態を管理する状態変数
     @FocusState private var focusedField: Bool
     
@@ -78,7 +78,6 @@ struct AdditionView: View {
                 .toolbar {
                     ToolbarItem(placement: .keyboard) {
                         HStack {
-                            
                             Spacer()
                             
                             Button {
