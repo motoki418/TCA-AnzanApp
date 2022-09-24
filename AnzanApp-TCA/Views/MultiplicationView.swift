@@ -20,18 +20,18 @@ struct MultiplicationView: View {
     let store: Store<CounterState, CounterAction>
     
     @State private var isShowAlert = false
+    
     @State private var isShowSheet = false
-    
     // 入力フォームのフォーカスの状態を管理する状態変数
-    @FocusState private var focusedField: Bool
-    
+    @FocusState private var isActive: Bool
+
     var body: some View {
         WithViewStore(self.store) { viewStore in
             NavigationView {
                 ZStack {
-                    Image.kokuban
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
+                    
+                    backgroundKokubanImage
+                    
                     VStack {
                         HStack {
                             Text("\(viewStore.multiplicationFirstNumber)")
@@ -47,28 +47,17 @@ struct MultiplicationView: View {
                                     send: CounterAction.textChanged
                                 )
                             )
-                            .frame(width: 100)
+                            .frame(width: 120)
                             .font(.title2)
                             // 引数には @FocusStateの値を渡す
-                            .focused(self.$focusedField)
+                            .focused($isActive)
                             .keyboardType(.decimalPad)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                         }
                         .frame(width:350)
                         .frame(height: 60)
                         
-                        Button {
-                            if viewStore.inputText.isEmpty {
-                                self.isShowAlert.toggle()
-                            } else {
-                                self.isShowSheet.toggle()
-                            }
-                        } label: {
-                            Text("答える")
-                                .font(.title)
-                                .frame(width: 100, height: 60)
-                        }
-                        .background(Color.backgroundColor)
+                        answerButton
                     }
                     .onAppear {
                         viewStore.send(.onAppear)
@@ -87,21 +76,43 @@ struct MultiplicationView: View {
                     }
                 }
                 .toolbar {
-                    ToolbarItem(placement: .keyboard) {
-                        HStack {
-                            
-                            Spacer()
-                            
-                            Button {
-                                // textFieldからフォーカスを外すので、focusedFieldの値をtrueからfalseに切り替える
-                                self.focusedField.toggle()
-                            } label: {
-                                Text("キーボードを閉じる")
-                            }
-                        }
+                    ToolbarItemGroup(placement: .keyboard) {
+                        Spacer()
+                        closeTheKeyboardButton
                     }
                 }
             }
+        }
+    }
+    
+    private var backgroundKokubanImage : some View {
+        Image.kokuban
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+    }
+    
+    private var answerButton: some View {
+        WithViewStore(self.store) { viewStore in
+            Button {
+                if viewStore.inputText.isEmpty {
+                    self.isShowAlert.toggle()
+                } else {
+                    self.isShowSheet.toggle()
+                }
+            } label: {
+                Text("答える")
+                    .font(.title)
+                    .frame(width: 100, height: 60)
+            }
+            .background(Color.backgroundColor)
+        }
+    }
+    
+    private var closeTheKeyboardButton: some View {
+        Button {
+            isActive.toggle()
+        } label: {
+            Text("キーボードを閉じる")
         }
     }
 }

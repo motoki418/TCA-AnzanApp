@@ -10,6 +10,7 @@ import SwiftUI
 
 extension Color {
     static let backgroundColor = Color("backgroundColor")
+    static let fontColor = Color("fontColor")
 }
 
 extension Image {

@@ -19,29 +19,14 @@ struct AdditionAnswerView: View {
     var body: some View {
         WithViewStore(self.store) { viewStore in
             NavigationView {
-                VStack {
-                    ZStack{
-                        Image.kokuban
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                        VStack{
-                            
-                            Text("\(viewStore.firstNumber) + \(viewStore.secondNumber) = \(viewStore.inputNumber)")
-                            
-                            Text("答えは\(viewStore.firstNumber + viewStore.secondNumber)")
-                            
-                            Text("\(viewStore.answerText)")
-                        }
-                        .font(.largeTitle)
-                    }
+                ZStack{
+                    backgroundKokubanImage
+                    
+                    answerSheet
                 }
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
-                        Button {
-                            isShowSheet.toggle()
-                        } label: {
-                            Image(systemName: "xmark")
-                        }
+                        closeSheetButton
                     }
                 }
                 .onAppear {
@@ -51,6 +36,33 @@ struct AdditionAnswerView: View {
                     viewStore.send(.sheetDismissed)
                 }
             }
+        }
+    }
+    
+    private var backgroundKokubanImage : some View {
+        Image.kokuban
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+    }
+    
+    private var answerSheet: some View {
+        WithViewStore(self.store) { viewStore in
+            VStack{
+                Text("\(viewStore.firstNumber) + \(viewStore.secondNumber) = \(viewStore.inputNumber)")
+                
+                Text("答えは\(viewStore.firstNumber + viewStore.secondNumber)")
+                
+                Text("\(viewStore.answerText)")
+            }
+            .font(.largeTitle)
+        }
+    }
+    
+    private var closeSheetButton: some View {
+        Button {
+            isShowSheet.toggle()
+        } label: {
+            Text("閉じる")
         }
     }
 }

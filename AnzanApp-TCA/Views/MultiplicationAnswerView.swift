@@ -13,44 +13,21 @@ struct MultiplicationAnswerView: View {
     
     let store: Store<CounterState, CounterAction>
     
-    let soundPlayer = SoundPlayer()
+    private let soundPlayer = SoundPlayer()
     
     @Binding var isShowSheet: Bool
     
     var body: some View {
         WithViewStore(self.store) { viewStore in
             NavigationView {
-                VStack {
-                    ZStack{
-                        Image.kokuban
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                        VStack{
-                            HStack {
-                                Text("\(viewStore.multiplicationFirstNumber)")
-                                
-                                Image(systemName: "multiply")
-                                
-                                Text("\(viewStore.multiplicationSecondNumber) =")
-                                
-                                Text("\(viewStore.inputNumber)")
-                            }
-                            .font(.largeTitle)
-                            
-                            Text("答えは\(viewStore.multiplicationFirstNumber * viewStore.multiplicationSecondNumber)")
-                            
-                            Text("\(viewStore.answerText)")
-                        }
-                        .font(.largeTitle)
-                    }
+                ZStack{
+                    backgroundKokubanImage
+                    
+                    answerSheet
                 }
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
-                        Button {
-                            isShowSheet.toggle()
-                        } label: {
-                            Image(systemName: "xmark")
-                        }
+                        closeSheetButton
                     }
                 }
                 .onAppear {
@@ -60,6 +37,38 @@ struct MultiplicationAnswerView: View {
                     viewStore.send(.sheetDismissed)
                 }
             }
+        }
+    }
+    
+    private var backgroundKokubanImage : some View {
+        Image.kokuban
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+    }
+    
+    private var answerSheet: some View {
+        WithViewStore(self.store) { viewStore in
+            VStack{
+                HStack {
+                    Text("\(viewStore.multiplicationFirstNumber)")
+                    
+                    Image(systemName: "multiply")
+                    
+                    Text("\(viewStore.multiplicationSecondNumber) = \(viewStore.inputNumber)")
+                }
+                Text("答えは \(viewStore.multiplicationFirstNumber * viewStore.multiplicationSecondNumber)")
+                
+                Text("\(viewStore.answerText)")
+            }
+            .font(.largeTitle)
+        }
+    }
+    
+    private var closeSheetButton: some View {
+        Button {
+            isShowSheet.toggle()
+        } label: {
+            Text("閉じる")
         }
     }
 }

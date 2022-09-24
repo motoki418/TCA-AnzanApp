@@ -9,7 +9,7 @@ import AVFoundation
 
 class SoundPlayer: NSObject {
 
-    private let correctSoundData = NSDataAsset(name: "correct")!.data
+    private let correctSoundData = NSDataAsset(name: "seikai_2")!.data
 
     private let incorrectSoundData = NSDataAsset(name: "incorrect")!.data
 
