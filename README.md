@@ -30,3 +30,6 @@ TCAの学習用として作成した暗算アプリです。
 - Xcode14.0
 - macOS Monterey 12.6
 - iOS16.0
+
+## 作成者
+https://twitter.com/motoki0418
