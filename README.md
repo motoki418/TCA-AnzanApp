@@ -23,6 +23,9 @@ TCAの学習用として作成した暗算アプリです。
 
 [【SwiftUI】キーボードを閉じる（フォーカスを外す）](https://thwork.net/2021/11/19/swiftui_keyboard-close_focus-remove/)
 
+## ダウンロードリンク
+[暗算アプリ](https://apps.apple.com/jp/app/%E6%9A%97%E7%AE%97%E3%82%A2%E3%83%97%E3%83%AA/id1632869426)
+
 ## 開発環境
 - Xcode13.4
 - macOS Monterey 12.4
